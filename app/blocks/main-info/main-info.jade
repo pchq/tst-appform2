@@ -1,0 +1,16 @@
+include ../field-input/field-input
+
+mixin main-info()
+	-
+		var data = [
+			{name: 'Полное ФИО', value: 'Пилипчук Александр Александрович'},
+			{name: 'Год рождения', value: '1988'},
+			{name: 'Место жительства', value: 'Нячанг, Вьетнам'},
+			{name: 'Скайп', value: ' '},
+			{name: 'Почта', value: 'devn0ll@ya.ru'}
+		]
+
+	+b.main-info&attributes(attributes)
+		each element in data
+			+e.field
+				+field-input(element)

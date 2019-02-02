@@ -1,0 +1,42 @@
+.field-radio
+
+	label
+		position relative
+		padding-left 34px
+		display flex
+		align-items center
+		height $radio_box_height
+		cursor pointer
+
+	input
+		display none
+
+	&__name
+		font-size 21px
+		font-weight 700
+		letter-spacing -.7px
+		color $color-black
+
+		&::before,
+		&::after
+			position absolute
+			display block
+			content ' '
+			transition .2s
+
+		&::before
+			sprite($radio_box)
+			z-index 1
+			top 0
+			left -2px
+
+
+		&::after
+			sprite($radio_check)
+			z-index 2
+			top ($radio_box_height/2 - $radio_check_height/2)
+			left ($radio_box_width/2 - $radio_check_width/2 - 2)
+			opacity 0
+
+			input:checked + &
+				opacity 1

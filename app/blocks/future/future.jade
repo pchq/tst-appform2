@@ -1,0 +1,15 @@
+include ../field-radio/field-radio
+
+mixin future()
+	-
+		var data = [
+			{name: 'Верстать', value: false},
+			{name: 'Прокачиваться в JS', value: true},
+			{name: 'Менеджерство', value: false},
+			{name: 'Другое', value: false}
+		]
+
+	+b.UL.future&attributes(attributes)
+		each element in data
+			+e.item
+				+field-radio(element)

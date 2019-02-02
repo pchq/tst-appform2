@@ -1,0 +1,12 @@
+mixin script-skill()
+	+b.script-skill&attributes(attributes)
+		+e.range
+			+e.meter(data-value="2")
+
+		+e.UL.options
+			li Не владею
+			li Использую готовые решения
+			li
+				| Использую готовые решения #[br]
+				| и умею их переделывать
+			li Пишу сложный JS с нуля
