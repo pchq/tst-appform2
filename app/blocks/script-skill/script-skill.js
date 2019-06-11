@@ -1,6 +1,8 @@
 const positions = [2, 150, 375, 768];
 const rangeContainer = document.querySelector('.script-skill__range');
 const meter = rangeContainer.querySelector('.script-skill__meter');
+const value = rangeContainer.querySelector('.script-skill__value');
+
 
 const getPosition = (newPos) => positions.reduce((actual, current, i) => {
 	return (Math.abs(newPos - positions[actual]) < Math.abs(newPos - current)) ? actual : i;}, 0
@@ -17,7 +19,7 @@ const getLeftCoords = (elem) => {
 
 export default () => {
 	document.addEventListener('DOMContentLoaded', () => {
-		setPosition(meter.dataset.value);
+		setPosition(value.value);
 	});
 
 	meter.onmousedown = function (e) {
@@ -35,12 +37,12 @@ export default () => {
 				newPos = rightEdge;
 			}
 			meter.style.left = newPos + 'px';
-			meter.dataset.value = getPosition(newPos);
+			value.value = getPosition(newPos);
 
 		};
 
 		document.onmouseup = function () {
-			setPosition(meter.dataset.value);
+			setPosition(value.value);
 			document.onmousemove = document.onmouseup = null;
 		};
 

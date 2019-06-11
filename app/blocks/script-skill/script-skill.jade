@@ -1,7 +1,8 @@
 mixin script-skill()
 	+b.script-skill&attributes(attributes)
 		+e.range
-			+e.meter(data-value="2")
+			+e.meter
+			+e.INPUT.value(type="hidden", value="2")
 
 		+e.UL.options
 			li Не владею
